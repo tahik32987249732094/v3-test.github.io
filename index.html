@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reCAPTCHA v3 Example</title>
     <!-- Add your Google reCAPTCHA v3 Site Key here -->
-    <!-- Add your Google reCAPTCHA v3 Site Key here -->
     <script src="https://www.google.com/recaptcha/api.js?render=6LfLqscmAAAAAIMEbRV0OTXMlLQXba-AJsi1T2qy"></script>
+    <style>
+        body {
+            transition: background-color 0.5s ease; /* Smooth transition effect */
+        }
+    </style>
 </head>
 <body>
 
@@ -28,8 +32,9 @@
                 grecaptcha.execute('6LfLqscmAAAAAIMEbRV0OTXMlLQXba-AJsi1T2qy', { action: 'submit' }).then(function(token) {
                     // Add the token to the form
                     document.getElementById('g-recaptcha-response').value = token;
-                    // Submit the form
-                    document.getElementById('myForm').submit();
+                    // Change the background color to red
+                    document.body.style.backgroundColor = 'red';
+                    // You can add additional actions here if needed
                 });
             });
         }
