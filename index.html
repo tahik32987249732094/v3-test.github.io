@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA v3 Example</title>
+    <!-- Add your Google reCAPTCHA v3 Site Key here -->
+    <!-- Add your Google reCAPTCHA v3 Site Key here -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfLqscmAAAAAIMEbRV0OTXMlLQXba-AJsi1T2qy"></script>
+</head>
+<body>
+
+    <h1>reCAPTCHA v3 Example</h1>
+
+    <form id="myForm">
+        <!-- Your form fields go here -->
+
+        <!-- Add the reCAPTCHA v3 widget -->
+        <button type="button" onclick="submitForm()">Submit</button>
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+    </form>
+
+    <script>
+        // Function to handle form submission
+        function submitForm() {
+            // Execute reCAPTCHA and submit the form if reCAPTCHA verification is successful
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6LfLqscmAAAAAIMEbRV0OTXMlLQXba-AJsi1T2qy', { action: 'submit' }).then(function(token) {
+                    // Add the token to the form
+                    document.getElementById('g-recaptcha-response').value = token;
+                    // Submit the form
+                    document.getElementById('myForm').submit();
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>
